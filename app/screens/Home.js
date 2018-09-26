@@ -97,7 +97,6 @@ export default class Home extends Component {
     }
 
     onSelectProfile(e) {
-        console.log(e);
         this.props.navigation.navigate('UserProfile')
     }
 
