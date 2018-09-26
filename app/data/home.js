@@ -1,20 +1,20 @@
 const homeData = [
     {
-        text: 'Celine Farach',
-        name: 'Celine Farach',
-        imageUrl: 'https://s-media-cache-ak0.pinimg.com/564x/9b/cd/22/9bcd2272d45857a1af48a83b8069c943.jpg',
+        text: 'Yashu Tanna',
+        name: 'Yashu Tanna',
+        imageUrl: 'https://if-maroc.org/safi/wp-content/uploads/sites/8/2016/12/bigstock-handsome-business-man-smiling-423597042-300x300.jpg',
         age: 20
     },
     {
-        text: 'Anella Sangra',
-        name: 'Anella Sangra',
-        imageUrl: 'https://s-media-cache-ak0.pinimg.com/564x/e3/90/ba/e390ba57a71aeb61b9227f8787165371.jpg',
+        text: 'Yashu Tanna',
+        name: 'Yashu Tanna',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvECB1xxMflZosvNXJ8bXv9QeqX0c92KvrHaObiIllVA3pOrp',
         age: 21
     },
     {
-        text: 'Celine Farach 2',
-        name: 'Celine Farach 2',
-        imageUrl: 'https://s-media-cache-ak0.pinimg.com/564x/84/87/77/8487773b5898a93f1b1512660fb0e75c.jpg',
+        text: 'Yashu Tanna',
+        name: 'Yashu Tanna',
+        imageUrl: 'https://if-maroc.org/safi/wp-content/uploads/sites/8/2016/12/bigstock-handsome-business-man-smiling-423597042-300x300.jpg',
         age: 20
     }
 ]
