@@ -11,17 +11,6 @@ import MySwiper                     from './../components/Swiper'
 import colors                       from './../resources/styles/colors'
 import NavBar                       from './../components/NavBar'
 
-const images = [
-    'https://instagram.fsgn5-3.fna.fbcdn.net/t51.2885-15/s640x640/e15/19425314_261720977642296_3471414103040327680_n.jpg',
-    'https://instagram.fsgn5-3.fna.fbcdn.net/t51.2885-15/s640x640/sh0.08/e35/c0.135.1080.1080/18381891_291086784673292_4220828678638010368_n.jpg',
-    'https://s-media-cache-ak0.pinimg.com/564x/9b/cd/22/9bcd2272d45857a1af48a83b8069c943.jpg',
-    'https://s-media-cache-ak0.pinimg.com/564x/84/87/77/8487773b5898a93f1b1512660fb0e75c.jpg'
-]
-
-const interests = [
-    'Drink', 'Cats', 'Dogs', 'Gym', 'ReactAZ', 'Guitar'
-]
-
 const {width} = Dimensions.get('window')
 const imgHeight = 400
 export default class UserProfile extends Component {
@@ -30,21 +19,37 @@ export default class UserProfile extends Component {
     }
 
     render() {
+        const profile = {
+            name: 'Yashu Tanna',
+            age: 25,
+            profession: ['Software Engineer'],
+            houseType: '2 Bedroom Apartment',
+            hobbies: [
+                'Drink', 'Cats', 'Dogs', 'Gym', 'ReactAZ', 'Guitar'
+            ],
+            location: 'Wynburg, Cape Town',
+            blurb: 'Looking for a cool room mate that is not going to lose their mind if i choose to get high sometimes',
+            images: [
+                'https://if-maroc.org/safi/wp-content/uploads/sites/8/2016/12/bigstock-handsome-business-man-smiling-423597042-300x300.jpg',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvECB1xxMflZosvNXJ8bXv9QeqX0c92KvrHaObiIllVA3pOrp'
+            ]
+        };
+
         return (
             <Container>
                 <Content style={styles.content}>
-                    <NavBar title='Celine Farach, 20' navigator={ this.props.navigation } />
-                    { this.renderSwiper() }
-                    { this.renderInfo() }
-                    { this.renderDescription() }
-                    { this.renderInstagramPhotos() }
-                    { this.renderInterest() }
+                    <NavBar title={ `${profile.name}, ${profile.age}` } navigator={ this.props.navigation } />
+                    { this.renderSwiper(profile) }
+                    { this.renderInfo(profile) }
+                    { this.renderDescription(profile) }
+                    {/* { this.renderInstagramPhotos(profile) } */}
+                    {/* { this.renderInterest(profile) } */}
                 </Content>
             </Container>
         )
     }
 
-    renderSwiper() {
+    renderSwiper(profile) {
         return (
             <Swiper width={width} height={imgHeight}
                 removeClippedSubviews={false}
@@ -54,7 +59,7 @@ export default class UserProfile extends Component {
                     top: -330, left: null, right: (width / 2) - 20
                 }} loop={true}>
                     {
-                        images.map((uri, idx) => {
+                        profile.images.map((uri, idx) => {
                            return (
                                <Image key={idx} style={{ width: width, height: imgHeight }} source={{ uri: uri }} />
                            )
@@ -64,31 +69,37 @@ export default class UserProfile extends Component {
         )
     }
 
-    renderInfo() {
+    renderInfo(profile) {
         return (
             <View style={styles.holder}>
-                <Text style={styles.username}>Celine Farach, 20</Text>
+                <Text style={styles.username}>{`${profile.name}, ${profile.age}`}</Text>
                 <View style={styles.infoRow}>
                     <Icon style={styles.infoIcon} name="ios-briefcase-outline" />
-                    <Text style={styles.info}>Job description</Text>
+                    <Text style={styles.info}>{profile.profession}</Text>
                 </View>
                 <View style={styles.infoRow}>
-                    <Icon style={styles.infoIcon} name="ios-school-outline" />
-                    <Text style={styles.info}>Education description</Text>
+                    <Icon style={styles.infoIcon} name="ios-home" />
+                    <Text style={styles.info}>{profile.houseType}</Text>
+                </View>
+                <View style={styles.infoRow}>
+                    <Icon style={styles.infoIcon} name="ios-bonfire" />
+                    <Text style={styles.info}>{
+                        profile.hobbies.reduce((str, hobby) =>  str === '' ? hobby : `${str}, ${hobby}`, '')
+                    }</Text>
                 </View>
                 <View style={styles.infoRow}>
                     <Icon style={styles.infoIcon} name="ios-locate-outline" />
-                    <Text style={styles.info}>Location description</Text>
+                    <Text style={styles.info}>{profile.location}</Text>
                 </View>
             </View>
         )
     }
 
-    renderDescription() {
+    renderDescription(profile) {
         return (
             <View style={styles.holder}>
                 <Text style={styles.info}>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                    { profile.blurb }
                 </Text>
             </View>
         )
